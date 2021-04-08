@@ -1,66 +1,96 @@
 
 public class Doctor extends Person  {
 	
-	public Doctor(String user , String name , int Pass , String feild) {
+	int IntFeild ;       
+	String StringFeild ; 
+	
+	public Doctor(String user , String name , int pass , String feild) {
 		
 		this.User = user;
 		this.Name = name;
-		this.pass = Pass;
+		this.Pass = pass;
 		this.Feild = feild;
 	}
 	
-	public void Func() {
+	public void TeachersFunc() {
 		
 		System.out.println(" -- Welcome To Ur Teachrs Panel -- ");
 		System.out.println("Choose Ur Option ( 1 ) Show Schedule ( 2 ) Add Grades ( 3 ) SetSubjects ( 4 ) to Login System");
 			
-		int chse ;
-		String chse2 ;
 			
-		chse = scn.nextInt();
+		IntFeild = Scan.nextInt();
 			
-		switch (chse) {
+		switch (IntFeild) {
 			case 1 :
 					this.showSchedule();
-					System.out.print("\nGo to The Pervious Window ( y , n ) : ");
-					chse2 = scn.next();
 					
-					if(chse2.equals("y")) {
-						this.Func();
-				}	
+					System.out.print("\nGo to The Pervious Window ( y , n ) : ");
+					StringFeild = Scan.next();
+					
+					if(StringFeild.equals("y") || StringFeild.equals("Y") ) 
+						
+					{
+						this.TeachersFunc();
+			
+					}	
+					
+					else 
+						System.out.print("Done ");
+					
 					break;
 					
+					///////////////////////////////////
 					
 			case 2:
 				this.SetGrades();
-				System.out.print("\nGo to The Pervious Window ( y , n ) : ");
-				chse2 = scn.next();
 				
-				if(chse2.equals("y")) {
-					this.Func();
-			}	
+				System.out.print("\nGo to The Pervious Window ( y , n ) : ");
+				StringFeild = Scan.next();
+				
+				if(StringFeild.equals("y") || StringFeild.equals("Y") ) 
+				{
+					this.TeachersFunc();
+			
+				}	
+				
+				else 
+					System.out.print("Done ");
+				
 				break;
-			
-			case 3:
-				this.SetSubjct();
-				System.out.print("\nGo to The Pervious Window ( y , n ) : ");
-				chse2 = scn.next();
 				
-				if(chse2.equals("y")) {
-					this.Func();
-			}	
-				break;	
+				///////////////////////////////////
+
+			case 3:
+				
+				this.SetSubjct();
+				
+				System.out.print("\nGo to The Pervious Window ( y , n ) : ");
+				StringFeild = Scan.next();
+				
+				if(StringFeild.equals("y") || StringFeild.equals("Y") ) 
+				{
+					
+					this.TeachersFunc();
 			
+				}	
+				
+				else 
+					System.out.print("Done ");
+				
+				break;	
+				
+				///////////////////////////////////
+
 			case 4 : 
 				
-				Main.MyFunc();
+				Main.LogIn();
 				break;
 				}
 	}
 	
 	public void showSchedule() {
 		int i = 0;
-		for(String s : this.Shdllist ) {
+		for(String s : Shdl_list ) {
 			
 			switch (i) {
 			case 0 :
@@ -109,27 +139,27 @@ public class Doctor extends Person  {
 	
 	public void SetGrades() {
 		String name;
-
-		System.out.print("Enter user for the student : "); name = scn.next();
-		for(Student s : Student.Slist) {
+		boolean check = false;
+		
+		System.out.print("Enter user for the student : "); name = Scan.next();
+		for(Student s : Student.Students_list) {
 			
 			if(name.equals(s.User)) 
 			{
-				for(String A : s.Subjct) 
+				check = true;
+				
+				for(String A : Subjcts_List) 
 				{
 					
 					System.out.print("Grade for "+A + " = ");
-					s.Gradelist.add(scn.nextDouble());
+					s.Grade_list.add(Scan.nextDouble());
 				}
-				
 			}
-			else
-			{
-				System.out.print("Not Found");
-				
-			}
+
 			
 		}
+			if (!check ) { System.out.print("Not Found"); }
+			
 		
 	}
 	
@@ -139,20 +169,20 @@ public class Doctor extends Person  {
 		while(true) {
 			
 			System.out.print(" ( 1 ) For Add ( 2 ) For Stop : ");
-			s = scn.nextInt();
+			s = Scan.nextInt();
 
 			if(s == 1) {
 				System.out.print("Add Subject Name : ");
-				sub = scn.next();
+				sub = Scan.next();
 
-				this.Subjct.add(sub);
+				Subjcts_List.add(sub);
 				System.out.print(sub+" Added \n");
 			}
 			
 			else if(s == 2 ) 
 				
 			{
-				System.out.print(this.Subjct.size()+" Added To Students List");
+				System.out.print(Subjcts_List.size()+" Added To Students List");
 				break;
 			}
 			

@@ -2,7 +2,7 @@ import java.util.*;
 
 public abstract class Person {
 	
-	/*Attributes*/
+	///// Attributes /////
 	
 	protected String Name;
 	
@@ -10,39 +10,41 @@ public abstract class Person {
 	
 	protected String Shedule;
 	
-	protected int pass;
+	protected int Pass;
 	
 	protected String Feild;
 	
-	protected List<Double> Gradelist = new ArrayList<Double>();
-	static List<String> Subjct = new ArrayList<String>();
+	///// ArrayLists To Store Data /////
+
+	protected List<Double> Grade_list = new ArrayList<Double>();
+	
+	static List<String> Subjcts_List = new ArrayList<String>();
+	
+	static List<String> Shdl_list = new ArrayList<String>();
+	
+	static List<Student> Students_list = new ArrayList<Student>();
+	
+	static List<Doctor> Doctors_list = new ArrayList<Doctor>();
+	
+	
+	Scanner Scan = new Scanner(System.in);
 	
 
-	
-	/*create a list to store a schedule*/
-	static List<String> Shdllist = new ArrayList<String>();
-	
-	static List<Student> Slist = new ArrayList<Student>();
-	
-	static List<Doctor> Dlist = new ArrayList<Doctor>();
-	
-	Scanner scn = new Scanner(System.in);
-	/*Methods*/
 
-
+	/////// Methods ///////
+	
 	/*Set The User Of the Persons*/
 	public void setStuData() {
 		
+		System.out.print("Enter The Name : "); 	 String Entered_Name = Scan.next();
 		
-		System.out.print("Enter The Name : "); 	 String name = scn.next();
+		System.out.print("Enter User Name : ");	 String Entered_User = Scan.next();
 		
-		System.out.print("Enter User Name : ");	 String user = scn.next();
+		System.out.print("Enter Password : ");	 int Entered_Pass = Scan.nextInt();
 		
-		System.out.print("Enter Password : ");	 int Pass = scn.nextInt();
+		System.out.print("Enter Feild : ");		 String Entered_Feild = Scan.next();
 		
-		System.out.print("Enter Feild : ");		 String feild = scn.next();
-		
-		Slist.add(new Student(user , name ,  Pass , feild));
+		Students_list.add(new Student(Entered_User , Entered_Name ,  Entered_Pass , Entered_Feild));
 		
 		System.out.print("Data Has been Saved!");
 		
@@ -51,15 +53,15 @@ public abstract class Person {
 	public void setTchData() {
 		
 		
-		System.out.print("Enter The Name : "); 	 String name = scn.next();
+		System.out.print("Enter The Name : "); 	 String Entered_Name = Scan.next();
 		
-		System.out.print("Enter User Name : ");	 String user = scn.next();
+		System.out.print("Enter User Name : ");	 String Entered_User = Scan.next();
 		
-		System.out.print("Enter Password : ");	 int Pass = scn.nextInt();
+		System.out.print("Enter Password : ");	 int Entered_Pass = Scan.nextInt();
 		
-		System.out.print("Enter Feild : ");		 String feild = scn.next();
+		System.out.print("Enter Feild : ");		 String Entered_Feild = Scan.next();
 		
-		Dlist.add(new Doctor(user , name ,  Pass , feild));
+		Doctors_list.add(new Doctor(Entered_User , Entered_Name ,  Entered_Pass , Entered_Feild));
 		
 		System.out.print("Data Has been Saved!");
 		
@@ -67,72 +69,74 @@ public abstract class Person {
 	
 	/*Set The Schedule*/
 	public void setShedule() {
-	
 		
 		System.out.println(" -- Enter The Schedule for 6 Days -- ");
 		
-		String d ;
+		String Day  ;
 		
-		/*Read the data for the shedule from the admin for every user*/
+		/*Read the data for the schedule from the Admin for every user*/
 
 		for(int i = 0 ; i< 6 ; i++) {
 			
 			switch(i){
 		
 			case 0:
-				System.out.println("Suterday : ");
 				
-				d = scn.next();
-				this.Shdllist.add(d);
+				System.out.println("Suterday : ");
+				Day = Scan.next();
+				Shdl_list.add(Day);
+				
 				break;
 				
 			case 1:
-				System.out.println("Sunday : ");
 				
-				d = scn.next();
-				this.Shdllist.add(d);
+				System.out.println("Sunday : ");
+				Day = Scan.next();
+				Shdl_list.add(Day);
+				
 				break;
 
 				
 			case 2:
-				System.out.println("Monday : ");
 				
-				d = scn.next();
-				this.Shdllist.add(d);
+				System.out.println("Monday : ");
+				Day = Scan.next();
+				Shdl_list.add(Day);
+				
 				break;
 
 				
 			case 3:
-				System.out.println("Tuesday : ");				
 				
-				d = scn.next();
-				this.Shdllist.add(d);
+				System.out.println("Tuesday : ");				
+				Day = Scan.next();
+				Shdl_list.add(Day);
+				
 				break;
 
 				
 			case 4:
+				
 					System.out.println("Wednesday : ");
+					Day = Scan.next();
+					Shdl_list.add(Day);
 					
-					d = scn.next();
-					this.Shdllist.add(d);
 					break;
 
 					
 			case 5:
-					System.out.println("Thursday : ");
-
-					d = scn.next();
-					this.Shdllist.add(d);
-					break;
-
-
 				
+					System.out.println("Thursday : ");
+					Day = Scan.next();
+					Shdl_list.add(Day);
+					
+					break;
 			}
 		}
 		
 		System.out.println("Done!");
 		
-	}
+}
 
 	
 

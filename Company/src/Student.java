@@ -1,62 +1,88 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Student extends Person {
 	
-
-	public Student(String user , String name , int Pass , String feild) {
-		
+		int IntFeild ;       
+		String StringFeild ; 
+			
+		public Student(String user , String name , int pass , String feild) {
+			                 	
 		this.User = user;
 		this.Name = name;
-		this.pass = Pass;
+		this.Pass = pass;
 		this.Feild = feild;
-	}
+	} 
 	
-	public void Func() {
+	public void StudentFunc() {
 		
 		System.out.println(" -- Welcome To Ur Students Panel -- ");
 		System.out.println("Choose Ur Option ( 1 ) Show Schedule ( 2 ) Show Subjects ( 3 ) Show Grades ( 4 ) to Login System");
 			
-		int chse ;
-		String chse2 ;
+
+		IntFeild = Scan.nextInt();
 			
-		chse = scn.nextInt();
-			
-		switch (chse) {
+		switch (IntFeild) {
+		
 			case 1 :
-					this.showSchedule(); /*Call function show schedule from abstract call person*/
-					System.out.print("\nGo to The Pervious Window ( y , n ) : ");
-					chse2 = scn.next(); /*read answer from user to choise*/
+				
+					this.showSchedule(); //Call function show schedule from abstract call person
 					
-					if(chse2.equals("y")) {
-						this.Func(); /*Recall to the Same Function (Recursion) */
-				}	
+					//Back From Function Show
+					System.out.print("\nGo to The Pervious Window ( y , n ) : ");
+					StringFeild = Scan.next(); //read answer from user to choise
+					
+					if(StringFeild.equals("y") || StringFeild.equals("Y") ) 
+					{
+						this.StudentFunc(); //Recall to the Same Function (Recursion)
+					}
+					
+					else 
+						System.out.print("Done ");
+					
 					break;
 					
-			
+					//////////////////////////////////////////////
+
 			case 2 : 
 				this.ShowSubject(); /*Call function show schedule from abstract call person*/
-				System.out.print("\nGo to The Pervious Window ( y , n ) : ");
-				chse2 = scn.next(); /*read answer from user to choise*/
 				
-				if(chse2.equals("y")) {
-					this.Func(); /*Recall to the Same Function (Recursion) */
-			}	
+				//Back From Function Show
+				System.out.print("\nGo to The Pervious Window ( y , n ) : ");
+				StringFeild = Scan.next(); /*read answer from user to choise*/
+				
+				if(StringFeild.equals("y") || StringFeild.equals("Y") ) 
+				{
+					this.StudentFunc(); /*Recall to the Same Function (Recursion) */
+					
+				}	
+				
+				else 
+					System.out.print("Done ");
+				
 				break;
 			
+				//////////////////////////////////////////////
+				
 			case 3 :
 				this.ShowGrades(); /*Call function show schedule from abstract call person*/
-				System.out.print("\nGo to The Pervious Window ( y , n ) : ");
-				chse2 = scn.next(); /*read answer from user to choise*/
 				
-				if(chse2.equals("y")) {
-					this.Func(); /*Recall to the Same Function (Recursion) */
-			}	
+				//Back From Function Show
+				System.out.print("\nGo to The Pervious Window ( y , n ) : ");
+				StringFeild = Scan.next(); /*read answer from user to choise*/
+				
+				if(StringFeild.equals("y") || StringFeild.equals("Y") ) 
+				{
+					this.StudentFunc(); /*Recall to the Same Function (Recursion) */
+			
+				}
+				else 
+					System.out.print("Done ");
+				
 				break;
 				
+				//////////////////////////////////////////////
+
 			case 4 : 
 				
-				Main.MyFunc();
+				Main.LogIn();
 				break;
 
 				}
@@ -64,7 +90,7 @@ public class Student extends Person {
 	
 	public void showSchedule() {
 		int i = 0;
-		for(String s : this.Shdllist ) {
+		for(String s : Shdl_list ) {
 			
 			switch (i) {
 			case 0 :
@@ -113,9 +139,9 @@ public class Student extends Person {
 	public void ShowGrades() {
 		
 		int i = 0;
-		for(double d : this.Gradelist) {
+		for(double d : this.Grade_list) {
 			
-			System.out.print(this.Subjct.get(i)+" : "+d+"\n");
+			System.out.print(Subjcts_List.get(i)+" : "+d+"\n");
 			i++;
 			
 		}
@@ -123,7 +149,7 @@ public class Student extends Person {
 	
 	public void ShowSubject() {
 		int i = 1;
-		for(String s : this.Subjct) {
+		for(String s : Subjcts_List) {
 			System.out.print( "\n----------- \n"+"( "+ i +" "+s);
 			i++;
 		}

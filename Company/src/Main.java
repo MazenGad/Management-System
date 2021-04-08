@@ -2,90 +2,128 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class Main 
+{
 
 
-	public static void main(String args[]) {
-
+	public static void main(String args[])
+	{
+		//Default Function For Login
+		LogIn();
 		
-		MyFunc();
+	}		
 
+	public static void LogIn() {
 		
-		}
+		//Initialise Variables And Objects
+		Scanner Scan = new Scanner(System.in); 			//Make Scan Object to Read From Users
 		
+		List<Admin> Admins = new ArrayList<Admin>();	//Make Admins List To Enter Admen Panel
+		
+		int IntFeild;									//To Read Numbers
+		
+		String StringFeild;								// To Read Strings
 
+		boolean Condition;								// Conditions to Check in If Statements
 		
-	
-	public static void MyFunc() {
-		
-		/*Make Scn Object to Read From Users*/
-		Scanner scn = new Scanner(System.in);
-
-		/*Make Admins List To Enter Admen Panel*/
-		List<Admin> AdList = new ArrayList<Admin>();
-
-		/*Add User Name : Mazen and Pass : 1020 to Admins List*/
-		AdList.add(new Admin("Mazen" , 1020));
+		Admins.add(new Admin("Mazen" , 1020)); 			//Add User Name : Mazen and Pass : 1020 to Admins List
 					
-			System.out.print(" -- Welcome To College System -- \n Log in as ( 1 ) admin ( 2 ) Student ( 3 ) Doctor ( 4 ) Cancel: ");
+		boolean check = false ;							// Check for validate
+		
+		System.out.print(" -- Welcome To College System -- \n Log in as ( 1 ) admin ( 2 ) Student ( 3 ) Doctor ( 4 ) Cancel: ");
 
-			/*Varoables to Read Data for user and password */
-			int chse1;		chse1 = scn.nextInt();
+		IntFeild = Scan.nextInt();
 			
-			String chse2;		
+		//Switch Case for Get into any option
+			switch (IntFeild) 
+			{
 			
-			/*Switch Case for Get into any option*/
-			switch (chse1) /*Case Admin*/{
-			case 1 :
-				System.out.print(" Enter User : ");  chse2 = scn.next();
-				System.out.print(" Enter Pass : ");  chse1 = scn.nextInt();
+			//Start Case 1 /////////////////////////////////////////////
+			case 1 : //Case Admin
 				
-				for(Admin d : AdList)
+				System.out.print(" Enter User : ");  StringFeild = Scan.next();
+				System.out.print(" Enter Pass : ");  IntFeild = Scan.nextInt();
+				
+				for(Admin d : Admins)
 				{
-					if(d.Name.equals(chse2) && d.pass == chse1 ) {
-						
-						d.Func();
-						
-					}
-				}
+					
+					Condition = d.Name.equals(StringFeild) && d.Pass == IntFeild;
+					
+					if(Condition ) {check = true; d.AdminFunc(); }
+
+				}					
+					
+				if(!check) { System.out.println("Wrong Data Try Again ....."); LogIn();}
 				
 				break;
 				
-			case 2 /*Case Students*/: 
-				System.out.print(" Enter User : ");  chse2 = scn.next();
-				System.out.print(" Enter Pass : ");  chse1 = scn.nextInt();
+				//End Case 1 /////////////////////////////////////////////
 				
-				for(Student s : Student.Slist)
+				
+				//Start Case 2 /////////////////////////////////////////////
+
+			case 2 ://Case Students 
+				
+				System.out.print(" Enter User : ");  StringFeild = Scan.next();
+				System.out.print(" Enter Pass : ");  IntFeild = Scan.nextInt();
+				
+				for(Student s : Student.Students_list)
 				{
-					if(s.User.equals(chse2) && s.pass == chse1 ) {
+					Condition = s.User.equals(StringFeild) && s.Pass == IntFeild ;
+					
+					if(Condition == true) { check = true; s.StudentFunc(); }
 						
-						s.Func();
-						
-					}
+				}
+
+				if(!check) { System.out.println("Wrong Data Try Again ....."); LogIn();}
+
+				break;			
+				
+				//End Case 2 /////////////////////////////////////////////
+				
+
+				//Start Case 3 /////////////////////////////////////////////
+
+			case 3 ://Case Teachers
+				
+				System.out.print(" Enter User : ");  StringFeild = Scan.next();
+				System.out.print(" Enter Pass : ");  IntFeild = Scan.nextInt();
+				
+				for(Doctor d : Doctor.Doctors_list)
+				{
+					Condition = d.User.equals(StringFeild) && d.Pass == IntFeild ;
+					
+					if(Condition) {	check = true; d.TeachersFunc(); }
+
+					
 				}
 				
-				break;
+				if(!check) { System.out.println("Wrong Data Try Again ....."); LogIn();}
+
 				
-			case 3 /*Case Teachers*/: 
-				System.out.print(" Enter User : ");  chse2 = scn.next();
-				System.out.print(" Enter Pass : ");  chse1 = scn.nextInt();
+				break;			
 				
-				for(Doctor d : Doctor.Dlist)
-				{
-					if(d.User.equals(chse2) && d.pass == chse1 ) {
-						
-						d.Func();
-						
-					}
-				}
+				//End Case 3 /////////////////////////////////////////////
+
 				
-				break;
-			case 4 /*Case Cancel*/:
+				//Start Case 4 /////////////////////////////////////////////
+
+			case 4 : //Case Cancel
+				
 				System.out.print("Thanks");
-				break;
+				break;		
+				
+				//End Case 4 /////////////////////////////////////////////
+
+				
+		    default :
+		    	
+					System.out.print("Wrong Choice Try Again ....");
+					LogIn();
+					
 			}
 			
 		}
-		}
+}
 	
 
