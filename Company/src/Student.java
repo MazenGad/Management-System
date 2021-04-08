@@ -25,7 +25,7 @@ public class Student extends Person {
 		switch (chse) {
 			case 1 :
 					this.showSchedule(); /*Call function show schedule from abstract call person*/
-					System.out.print("Go to The Pervious Window ( y , n ) : ");
+					System.out.print("\nGo to The Pervious Window ( y , n ) : ");
 					chse2 = scn.next(); /*read answer from user to choise*/
 					
 					if(chse2.equals("y")) {
@@ -36,7 +36,7 @@ public class Student extends Person {
 			
 			case 2 : 
 				this.ShowSubject(); /*Call function show schedule from abstract call person*/
-				System.out.print("Go to The Pervious Window ( y , n ) : ");
+				System.out.print("\nGo to The Pervious Window ( y , n ) : ");
 				chse2 = scn.next(); /*read answer from user to choise*/
 				
 				if(chse2.equals("y")) {
@@ -46,7 +46,7 @@ public class Student extends Person {
 			
 			case 3 :
 				this.ShowGrades(); /*Call function show schedule from abstract call person*/
-				System.out.print("Go to The Pervious Window ( y , n ) : ");
+				System.out.print("\nGo to The Pervious Window ( y , n ) : ");
 				chse2 = scn.next(); /*read answer from user to choise*/
 				
 				if(chse2.equals("y")) {
@@ -115,7 +115,7 @@ public class Student extends Person {
 		int i = 0;
 		for(double d : this.Gradelist) {
 			
-			System.out.print(this.Subjct.indexOf(i)+" : "+d);
+			System.out.print(this.Subjct.get(i)+" : "+d+"\n");
 			i++;
 			
 		}
@@ -124,7 +124,7 @@ public class Student extends Person {
 	public void ShowSubject() {
 		int i = 1;
 		for(String s : this.Subjct) {
-			System.out.print( "----------- \n"+"( "+ i +" "+s);
+			System.out.print( "\n----------- \n"+"( "+ i +" "+s);
 			i++;
 		}
 	}

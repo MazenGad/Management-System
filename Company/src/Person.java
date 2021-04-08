@@ -15,7 +15,7 @@ public abstract class Person {
 	protected String Feild;
 	
 	protected List<Double> Gradelist = new ArrayList<Double>();
-	protected List<String> Subjct = new ArrayList<String>();
+	static List<String> Subjct = new ArrayList<String>();
 	
 
 	

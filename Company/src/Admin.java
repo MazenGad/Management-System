@@ -21,7 +21,7 @@ public class Admin extends Person {
 		
 		case 1 :
 			this.setStuData(); 
-			System.out.print("Go to The Pervious Window ( y , n ) : ");
+			System.out.print("\nGo to The Pervious Window ( y , n ) : ");
 			chse2 = scn.next();
 			
 			if(chse2.equals("y")) {
@@ -31,7 +31,7 @@ public class Admin extends Person {
 			
 		case 2 :
 			this.setTchData();
-			System.out.print("Go to The Pervious Window ( y , n ) : ");
+			System.out.print("\nGo to The Pervious Window ( y , n ) : ");
 			chse2 = scn.next();
 			
 			if(chse2.equals("y")) {
@@ -41,7 +41,7 @@ public class Admin extends Person {
 			
 		case 3 :
 			this.setShedule();
-			System.out.print("Go to The Pervious Window ( y , n ) : ");
+			System.out.print("\nGo to The Pervious Window ( y , n ) : ");
 			chse2 = scn.next();
 			
 			if(chse2.equals("y")) {

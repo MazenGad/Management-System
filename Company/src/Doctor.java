@@ -12,7 +12,7 @@ public class Doctor extends Person  {
 	public void Func() {
 		
 		System.out.println(" -- Welcome To Ur Teachrs Panel -- ");
-		System.out.println("Choose Ur Option ( 1 ) Show Schedule ( 2 ) Add Grades ( 3 ) SetSubjects ( 4 ) to The Pervious Window");
+		System.out.println("Choose Ur Option ( 1 ) Show Schedule ( 2 ) Add Grades ( 3 ) SetSubjects ( 4 ) to Login System");
 			
 		int chse ;
 		String chse2 ;
@@ -22,7 +22,7 @@ public class Doctor extends Person  {
 		switch (chse) {
 			case 1 :
 					this.showSchedule();
-					System.out.print("Go to The Pervious Window ( y , n ) : ");
+					System.out.print("\nGo to The Pervious Window ( y , n ) : ");
 					chse2 = scn.next();
 					
 					if(chse2.equals("y")) {
@@ -33,7 +33,7 @@ public class Doctor extends Person  {
 					
 			case 2:
 				this.SetGrades();
-				System.out.print("Go to The Pervious Window ( y , n ) : ");
+				System.out.print("\nGo to The Pervious Window ( y , n ) : ");
 				chse2 = scn.next();
 				
 				if(chse2.equals("y")) {
@@ -43,7 +43,7 @@ public class Doctor extends Person  {
 			
 			case 3:
 				this.SetSubjct();
-				System.out.print("Go to The Pervious Window ( y , n ) : ");
+				System.out.print("\nGo to The Pervious Window ( y , n ) : ");
 				chse2 = scn.next();
 				
 				if(chse2.equals("y")) {
@@ -119,7 +119,7 @@ public class Doctor extends Person  {
 				{
 					
 					System.out.print("Grade for "+A + " = ");
-					this.Gradelist.add(scn.nextDouble());
+					s.Gradelist.add(scn.nextDouble());
 				}
 				
 			}
